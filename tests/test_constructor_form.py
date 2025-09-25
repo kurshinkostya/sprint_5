@@ -1,29 +1,26 @@
+import pytest
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from web_locators.locators import *
 
 
 class TestStellarBurgersConstructorForm:
 
-    def test_constructor_go_to_sauces_scroll_to_sauces(self, login):
-        """Проверка раздел "Соусы" """
+    @pytest.mark.parametrize("menu_button, header_locator, expected_text", [
+        (MainPage.mn_sauces_button, MainPage.mn_h_sauces, "Соусы"),
+        (MainPage.mn_filling_button, MainPage.mn_h_filling, "Начинки"),
+        (MainPage.mn_ban_button, MainPage.mn_h_ban, "Булки"),
+    ])
+    def test_constructor_sections(self, login, menu_button, header_locator, expected_text):
+        """Проверка разделов конструктора"""
         driver = login
         driver.find_element(*MainPage.mn_constructor_button).click()
-        driver.find_element(*MainPage.mn_sauces_button).click()
-        h_sauce = driver.find_element(*MainPage.mn_h_sauces)
-        assert h_sauce.text == 'Соусы'
-
-    def test_constructor_go_to_filling_scroll_to_filling(self, login):
-        """Проверка раздел "Начинки" """
-        driver = login
-        driver.find_element(*MainPage.mn_constructor_button).click()
-        driver.find_element(*MainPage.mn_filling_button).click()
-        h_filling = driver.find_element(*MainPage.mn_h_filling)
-        assert h_filling.text == 'Начинки'
-
-    def test_constructor_go_to_bun_scroll_to_bun(self, login):
-        """Проверка раздел "Булки" """
-        driver = login
-        driver.find_element(*MainPage.mn_constructor_button).click()
-        driver.find_element(*MainPage.mn_filling_button).click()
-        driver.find_element(*MainPage.mn_ban_button).click()
-        h_ban = driver.find_element(*MainPage.mn_h_ban)
-        assert h_ban.text == 'Булки'
+        tab = WebDriverWait(driver, 5).until(
+            EC.presence_of_element_located(menu_button)
+        )
+        if "tab_tab_type_current" not in tab.get_attribute("class"):
+            tab.click()
+        header = WebDriverWait(driver, 5).until(
+            EC.presence_of_element_located(header_locator)
+        )
+        assert header.text == expected_text
