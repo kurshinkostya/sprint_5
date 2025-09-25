@@ -1,0 +1,82 @@
+# ========================
+# Python bytecode
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ========================
+# Virtual environments
+# ========================
+venv/
+env/
+.venv/
+.env/
+
+# ========================
+# Logs and temp files
+# ========================
+*.log
+logs/
+*.tmp
+*.temp
+
+# ========================
+# Pytest cache
+# ========================
+.pytest_cache/
+.coverage
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# ========================
+# Jupyter Notebook
+# ========================
+.ipynb_checkpoints/
+
+# ========================
+# Mypy
+# ========================
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# ========================
+# Pylint
+# ========================
+.pylint.d/
+
+# ========================
+# IDEs and editors
+# ========================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# ========================
+# Environment files
+# ========================
+*.env
+.env.local
+.env.*.local
+
+# ========================
+# Distribution / packaging
+# ========================
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+
+# ========================
+# Mac / Linux / Windows temp
+# ========================
+.DS_Store
+Thumbs.db
