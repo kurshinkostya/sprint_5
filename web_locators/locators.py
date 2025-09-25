@@ -1,98 +1,67 @@
 from selenium.webdriver.common.by import By
 
-
+    
 class MainPage:
-    # кнопка "Личный кабинет"
-    mp_profile_button = (By. XPATH, ".//p[text()='Личный кабинет']")
-    
-    # кнопка "Войти в аккаунт"
-    mp_auth = (By.XPATH, ".//button[text()='Войти в аккаунт']")
-    
-    # кнопка "Оформить заказ"
-    mp_order_button = (By.XPATH, ".//button[text()='Оформить заказ']")
-    
-    # кнопка "Конструктор"
-    mp_constructor_button = (By.XPATH, ".//p[text()='Конструктор']")
-    
-    # логотип
-    mp_logo = (By.XPATH, ".//div[@class='AppHeader_header__logo__2D0X2']")
-    
-    # кнопка "Соусы"
-    mp_sauces_button = (By.XPATH, ".//span[text()='Соусы']/parent::*")
-    
-    # заголовок "Соусы"
-    mp_h_sauces = By.XPATH, ".//h2[@class='text text_type_main-medium mb-6 mt-10' and text()='Соусы']"
-    
-    # кнопка "Булки"
-    mp_ban_button = (By.XPATH, ".//span[text()='Булки']/parent::*")
-    
-    # заголовок "Булки"
-    mp_h_ban = By.XPATH, ".//h2[@class='text text_type_main-medium mb-6 mt-10' and text()='Булки']"
-    
-    # кнопка "Начинки"
-    mp_filling_button = (By.XPATH, ".//span[text()='Начинки']/parent::*")
-    
-    # заголовок "Начинки"
-    mp_h_filling = By.XPATH, ".//h2[@class='text text_type_main-medium mb-6 mt-10' and text()='Начинки']"
+    # кнопки хедера
+    mn_profile_button = (By.XPATH, ".//p[text()='Личный Кабинет']")
+    mn_auth = (By.XPATH, ".//button[text()='Войти в аккаунт']")
+    mn_order_button = (By.XPATH, ".//button[text()='Оформить заказ']")
+    mn_constructor_button = (By.XPATH, ".//p[text()='Конструктор']")
+    mn_logo = (By.XPATH, ".//div[@class='AppHeader_header__logo__2D0X2']")
 
+    # разделы конструктора
+    mn_sauces_button = (By.XPATH, ".//span[text()='Соусы']/parent::*")
+    mn_h_sauces = (By.XPATH, ".//h2[@class='text text_type_main-medium mb-6 mt-10' and text()='Соусы']")
+
+    mn_ban_button = (By.XPATH, ".//span[text()='Булки']/parent::*")
+    mn_h_ban = (By.XPATH, ".//h2[@class='text text_type_main-medium mb-6 mt-10' and text()='Булки']")
+
+    mn_filling_button = (By.XPATH, ".//span[text()='Начинки']/parent::*")
+    mn_h_filling = (By.XPATH, ".//h2[@class='text text_type_main-medium mb-6 mt-10' and text()='Начинки']")
+
+    # общие элементы конструктора
+    mn_h1_constructor = (By.XPATH, ".//h1[text()='Соберите бургер']")
+    mn_ingredient_list = (By.XPATH, ".//section[contains(@class,'BurgerIngredients_ingredients__menuContainer')]")
+    mn_ingredient_card = (By.XPATH, ".//div[contains(@class, 'BurgerIngredient_ingredient__')]")
+    mn_basket_constructor = (By.XPATH, ".//section[contains(@class,'BurgerConstructor_basket__')]")
 
 
 class AuthLogin:
-    # заголовок "Вход"
     al_login_text = (By.XPATH, ".//h2[text()='Вход']")
-    
-    # кнопка "Войти"
     al_login_button_any_forms = (By.XPATH, ".//button[text()='Войти']")
     
-    # надпись "Войти" с ссылкой
-    al_login_text_with_href = (By.XPATH, ".//a[text()='Войти']")   
-    
-    # ссылка "Зарегистрироваться"
+    # ссылка "Войти"
+    al_login_text_with_href = (By.XPATH, ".//a[text()='Войти']")  
     al_login_button = (By.CLASS_NAME, "Auth_link__1fOlj")
-    
-    # поле "email"
     al_email_field = (By.XPATH, ".//label[text()='Email']//parent::*/input[@type='text' and @name='name']")
-    
-    # поле "password"
     al_password_field = (By.XPATH, ".//input[@type='password' and @name='Пароль']")
-    
     al_element_with_login_text = (By.XPATH, ".//*[text() = 'Вход']")
+    al_register_href = (By.XPATH, ".//a[text()='Зарегистрироваться']")
+    al_restore_password_href = (By.XPATH, ".//a[text()='Восстановить пароль']")
 
 
 class AuthRegistre:
-    # поле "Имя"
+    ar_register_text = (By.XPATH, ".//h2[text()='Регистрация']")
     ar_name_field = (By.XPATH, ".//label[text()='Имя']//parent::*/input[@type='text' and @name='name']")
-    
-    # поле "Логин"
     ar_email_field = (By.XPATH, ".//label[text()='Email']//parent::*/input[@type='text' and @name='name']")
-    
-    # поле "Пароль"
     ar_password_field = (By.XPATH, ".//input[@type='password' and @name='Пароль']")
-    
-    # кнопка "Зарегистрироваться"
     ar_register_button = (By.XPATH, ".//button[text()='Зарегистрироваться']")
-    
-    # сообщение об ошибке
     ar_error_message = (By.XPATH, ".//p[contains(@class, 'input__error')]")
-    
-    # сообщение об ошибке
     ar_error_message_2 = (By.XPATH, ".//div[@class='Auth_login__3hAey']/p[@class='input__error text_type_main-default']")
-    
-    # ссылка "Зарегистрироваться"
     ar_login_button = (By.CLASS_NAME, "Auth_link__1fOlj")
 
-#
+
 class AuthPassword:
-    # текст "Войти"
+    ap_restore_text = (By.XPATH, ".//h2[text()='Восстановление пароля']")
+    ap_email_field = (By.XPATH, ".//label[text()='Email']//parent::*/input[@type='text']")
+    ap_restore_button = (By.XPATH, ".//button[text()='Восстановить']")
     ap_login_text_with_href = (By.XPATH, ".//a[text()='Войти']")
 
 
 class LKProfile:
-    # кнопка "Профиль"
+    lk_profile_header = (By.XPATH, ".//h2[text()='Профиль']")
     lk_logout_button = (By.XPATH, ".//button[text()='Выход']")
-    
-    # кнопка "История заказов"
     lk_info_message = (By.XPATH, ".//p[contains(text(),'персональные данные')]")
-    
-    # кнопка "Выходы"
     lk_history_shop_button = (By.XPATH, ".//li[@class='Account_listItem__35dAP']/a[@class='Account_link__2ETsJ text text_type_main-medium text_color_inactive']")
+    lk_history_tab_active = (By.XPATH, ".//a[contains(@class, 'Account_link__') and contains(@class, 'active')]")
+    lk_orders_list = (By.XPATH, ".//ul[contains(@class,'OrderHistory_list__')]")
