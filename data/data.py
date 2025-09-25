@@ -5,6 +5,17 @@ class PersonData:
     user_name = 'kostya'
     login = 'kostya_k_30_666@ya.ru'
     password = '315920'
+    
+# тестовые данные и ожидаемые ответы
+
+class ProfileData:
+    history_orders_text = "История заказов"
+
+class ConstructorData:
+    h1_text = "Соберите бургер"
+
+class AuthData:
+    login_button_text = "Вход"
 
 # функция генератора логина
 class ValidData:
